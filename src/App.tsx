@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import SearchBar from './components/SearchBar';
+import CourseList from './components/CourseList';
+import courseData from './data/courses.json'; 
+import { Course } from './interfaces/courseTypes'; 
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
+
+  // Hooks
+  const [searchQuery, setSearchQuery] = useState<string>('');
+
+  // Handles
+  const handleSearch = (query: string) => {
+    setSearchQuery(query.toLowerCase());
+  };
+
+  // Filters
+  const filteredCourses = courseData.filter((course: Course) =>
+    course.title.toLowerCase().includes(searchQuery) ||
+    course.description.toLowerCase().includes(searchQuery)
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <SearchBar onSearch={handleSearch} />
+      <CourseList courses={filteredCourses} />
     </div>
   );
-}
+};
 
 export default App;
