@@ -1,3 +1,4 @@
+// components/LessonCard.tsx
 import React, { useState } from 'react';
 import { Lesson } from '../interfaces/courseTypes';
 import renderContent from '../utils/renderContent';

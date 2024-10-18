@@ -1,4 +1,4 @@
-// ModuleCard.tsx
+// components/ModuleCard.tsx
 import React, { useState } from 'react';
 import LessonCard from './LessonCard';
 import { Module } from '../interfaces/courseTypes'; // Import the Module type

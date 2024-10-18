@@ -1,3 +1,4 @@
+// intefaces/courseTypes.tsx
 export interface Course {
     id: number;
     title: string;

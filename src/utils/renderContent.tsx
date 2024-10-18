@@ -1,3 +1,4 @@
+// utils/renderContent.tsx
 const renderContent = (contentItem: { type: string; data: string }) => {
 
     switch (contentItem.type) {
